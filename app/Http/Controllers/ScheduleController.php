@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ScheduleRequest;
 use App\Models\Schedule;
 
 class ScheduleController extends Controller
@@ -23,7 +24,7 @@ class ScheduleController extends Controller
         return view('schedules.schedule_create');
     }
  
-    public function store(Request $request, Schedule $schedule)
+    public function store(ScheduleRequest $request, Schedule $schedule)
     {
 
         $input=$request['schedule'];
@@ -36,10 +37,16 @@ class ScheduleController extends Controller
         return view('schedules.schedule_edit')->with(['schedule'=>$schedule]);
     }
 
-    public function update(Request $request, Schedule $schedule)
+    public function update(ScheduleRequest $request, Schedule $schedule)
     {
         $input_schedule=$request['schedule'];
         $schedule->fill($input_schedule)->save();
         return redirect('/schedules/' . $schedule->id);
+    }
+
+    public function delete(Schedule $schedule)
+    {
+        $schedule->delete();
+        return redirect('/');
     }
 }

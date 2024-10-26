@@ -14,7 +14,8 @@
         @method('PUT')
         <div class="content">
             <h2>予定</h2>
-            <input type="text" name="schedule[content]" value="{{ $schedule->content }}" placeholder="予定内容"/>
+            <input type="text" name="schedule[content]" value="{{ old('scheule.content')}}" placeholder="予定内容"/>
+            <p class="content" style="color:red">{{ $errors->first('schedule.content') }}</p>
         </div>
         
       <div class="start_date_time">
