@@ -17,6 +17,8 @@ return new class extends Migration
             $table->dateTime('start_date_time',$precision=0);
             $table->dateTime('end_date_time',$precision=0);
             $table->string('diary',200)->nullable($value = true);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
