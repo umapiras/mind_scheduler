@@ -30,4 +30,16 @@ class ScheduleController extends Controller
         $schedule->fill($input)->save();
         return redirect('/schedules/' . $schedule->id);
     }
+
+    public function edit(Schedule $schedule)
+    {
+        return view('schedules.schedule_edit')->with(['schedule'=>$schedule]);
+    }
+
+    public function update(Request $request, Schedule $schedule)
+    {
+        $input_schedule=$request['schedule'];
+        $schedule->fill($input_schedule)->save();
+        return redirect('/schedules/' . $schedule->id);
+    }
 }

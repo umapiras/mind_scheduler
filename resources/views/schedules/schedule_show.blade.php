@@ -23,5 +23,6 @@
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->end_date_time}}</a>
                 </p>
     </div>
+    <div class="edit"><a href="/schedules/{{ $schedule->id }}/edit">edit</a></div>
 </body>
 </html>
