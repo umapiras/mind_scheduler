@@ -13,7 +13,9 @@
         @csrf
         <div class="content">
             <h2>予定</h2>
-            <input type="text" name="schedule[content]" placeholder="予定内容"/>
+            <input type="text" name="schedule[content]" placeholder="予定内容" value="{{ old('scheule.content')}}"/>
+            <p class="content" style="color:red">{{ $errors->first('schedule.content') }}</p>
+
         </div>
         
     <form method="get" action="input_datetime_local.html">
