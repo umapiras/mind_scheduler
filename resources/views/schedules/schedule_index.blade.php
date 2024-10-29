@@ -12,9 +12,10 @@
     <x-slot name="header">
         スケジュール一覧
     </x-slot>
+    
     @foreach ($schedules as $schedule)
+        <div class='mx-auto py-6 px-4 sm:px-6 lg:px-8'>
             <div class='bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 max-w-sm p-6'>
-                <div class='mx-auto py-6 px-4 sm:px-6 lg:px-8'>
                     <h2 class='text-2xl font-bold mb-3'>
                         <a href="/schedules/{{$schedule->id}}">{{ $schedule->content }}</a>
                     </h2>
@@ -24,18 +25,24 @@
                     <p class='text-sm mb-3'>
                         <a href="/schedules/{{$schedule->id}}">{{ $schedule->end_date_time}}</a>
                     </p>
+                    <p class="text-sm mb-3">
+                    @if(isset($schedule->mind))
+                    {{ $schedule->mind->name }}
+                    @endif
+                    </p>
                     <form action="/schedules/{{ $schedule->id }}" id="form_{{ $schedule->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="bg-gray-600 hover:bg-gray-500 text-black rounded-full" onclick="deleteSchedule({{ $schedule->id }})">delete</button>
+                    <div class='button'>
+                    <button class="bg-blue-400 text-black rounded hover:bg-blue-500" onclick="deleteSchedule({{ $schedule->id }})">delete</button>
+                    </div>
                     </form>
-                </div>
-                @if(is_null($schedule))
-                <a href="">{{ $schedule->mind->name }}</a>
-                @endif
             </div>
+        </div>
      @endforeach
+    <div class="sm:px-6 lg:px-8 text-lg bg-gray-600 hover:bg-gray-500 text-black rounded-full">
     <a href='/schedules/create'>create</a>
+    </div>
     </x-app-layout>
 
     <script>
