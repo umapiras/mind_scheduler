@@ -8,7 +8,10 @@
 
 </head>
 <body>
-    <h1>予定登録</h1>
+<x-app-layout>
+    <x-slot name="header">
+        予定登録
+    </x-slot>
     <form action="/schedules" method="POST">
         @csrf
         <div class="content">
@@ -32,9 +35,13 @@
         </div>
 
         <input type="submit" value="store"/>
+
     </form>    
+
+
     <div class="footer">
         <a href="/">戻る</a>
     </div>
+</x-app-layout>
 </body>
 </html>

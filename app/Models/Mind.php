@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mind extends Model
 {
+    use HasFactory;
+
     public function schedules()
     {
         return $this->hasMany(Schedule::class);

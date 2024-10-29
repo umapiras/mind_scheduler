@@ -8,21 +8,29 @@
 
 </head>
 <body>
-    <h1>Detail</h1>
-    <div class='details'>
-                <p class='content'>
+<x-app-layout>
+    <x-slot name="header">
+        予定詳細
+    </x-slot>
+   
+    <div class='mx-auto py-6 px-4 sm:px-6 lg:px-8'>
+        <div class='bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 max-w-sm p-6'>
+                <h3 class='text-2xl font-bold mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->content }}</a>
-                </p>
-                <p class='diary'>
+                </h3>
+                <p class='mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->diary }}</a>
                 </p>
-                <p class='start_date_time'>
+                <p class='mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->start_date_time}}</a>
                 </p>
-                <p class='end_date_time'>
+                <p class='mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->end_date_time}}</a>
                 </p>
+            <a href="">{{ $schedule->mind->name }}</a>
+            <div class="edit"><a href="/schedules/{{ $schedule->id }}/edit">edit</a></div>
+        </div>
     </div>
-    <div class="edit"><a href="/schedules/{{ $schedule->id }}/edit">edit</a></div>
+</x-app-layout>
 </body>
 </html>

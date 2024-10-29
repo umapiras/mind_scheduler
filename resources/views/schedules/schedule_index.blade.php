@@ -8,29 +8,35 @@
 
 </head>
 <body>
-    <h1>Schedule</h1>
-    <a href='/schedules/create'>create</a>
-    <div class='schedules'>
-        @foreach ($schedules as $schedule)
-            <div class='schedule'>
-                <h2 class='content'>
-                    <a href="/schedules/{{$schedule->id}}">{{ $schedule->content }}</a>
-                </h2>
-                <p class='start_date_time'>
-                    <a href="/schedules/{{$schedule->id}}">{{ $schedule->start_date_time}}</a>
-                </p>
-                <p class='end_date_time'>
-                    <a href="/schedules/{{$schedule->id}}">{{ $schedule->end_date_time}}</a>
-                </p>
+<x-app-layout>
+    <x-slot name="header">
+        スケジュール一覧
+    </x-slot>
+    @foreach ($schedules as $schedule)
+            <div class='bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 max-w-sm p-6'>
+                <div class='mx-auto py-6 px-4 sm:px-6 lg:px-8'>
+                    <h2 class='text-2xl font-bold mb-3'>
+                        <a href="/schedules/{{$schedule->id}}">{{ $schedule->content }}</a>
+                    </h2>
+                    <p class='text-sm mb-3'>
+                        <a href="/schedules/{{$schedule->id}}">{{ $schedule->start_date_time}}</a>
+                    </p>
+                    <p class='text-sm mb-3'>
+                        <a href="/schedules/{{$schedule->id}}">{{ $schedule->end_date_time}}</a>
+                    </p>
+                    <form action="/schedules/{{ $schedule->id }}" id="form_{{ $schedule->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="bg-gray-600 hover:bg-gray-500 text-black rounded-full" onclick="deleteSchedule({{ $schedule->id }})">delete</button>
+                    </form>
+                </div>
+                @if(is_null($schedule))
+                <a href="">{{ $schedule->mind->name }}</a>
+                @endif
             </div>
-            <form action="/schedules/{{ $schedule->id }}" id="form_{{ $schedule->id }}" method="post">
-                @csrf
-                @method('DELETE')
-                 <button type="button" onclick="deleteSchedule({{ $schedule->id }})">delete</button>
-            </form>
-        @endforeach
-    </div>
-
+     @endforeach
+    <a href='/schedules/create'>create</a>
+    </x-app-layout>
 
     <script>
             function deleteSchedule(id) {
@@ -41,6 +47,6 @@
                 }
             }
         </script>
-        
+      
 </body>
 </html>
