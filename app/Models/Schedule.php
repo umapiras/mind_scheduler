@@ -17,4 +17,9 @@ class Schedule extends Model
         'diary',
         'mind_id'
     ];
+
+    public function mind()
+    {
+        return $this->belongsTo(Mind::class);
+    }
 }
