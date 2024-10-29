@@ -19,16 +19,16 @@
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->content }}</a>
                 </h3>
                 <p class='mb-3'>
-                    <a href="/schedules/{{$schedule->id}}">{{ $schedule->diary }}</a>
-                </p>
-                <p class='mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->start_date_time}}</a>
                 </p>
                 <p class='mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->end_date_time}}</a>
                 </p>
-            <a href="">{{ $schedule->mind->name }}</a>
-            <div class="edit"><a href="/schedules/{{ $schedule->id }}/edit">edit</a></div>
+                <p class='mb-3'>
+                    <a href="/schedules/{{$schedule->id}}">{{ $schedule->diary }}</a>
+                </p>
+                <p class='mb-3'> {{ $schedule->mind->name }} </p>
+            <div class="edit"><a href="/schedules/{{ $schedule->id }}/edit">編集</a></div>
         </div>
     </div>
 </x-app-layout>
