@@ -27,7 +27,11 @@
                 <p class='mb-3'>
                     <a href="/schedules/{{$schedule->id}}">{{ $schedule->diary }}</a>
                 </p>
-                <p class='mb-3'> {{ $schedule->mind->name }} </p>
+                <p class='mb-3'>
+                @if(isset($schedule->mind))
+                    {{ $schedule->mind->name }}
+                @endif
+                </p>
             <div class="edit"><a href="/schedules/{{ $schedule->id }}/edit">編集</a></div>
         </div>
     </div>
