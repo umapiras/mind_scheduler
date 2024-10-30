@@ -40,8 +40,11 @@
             </div>
         </div>
      @endforeach
-    <div class="sm:px-6 lg:px-8 text-lg bg-gray-600 hover:bg-gray-500 text-black rounded-full">
-    <a href='/schedules/create'>create</a>
+    <div class="button">
+    <button class="sm:px-6 lg:px-8 bg-blue-400 text-black rounded hover:bg-blue-500">
+    <a href='/schedules/create'>作成</a>
+    </button>
+    <p>{{ Auth::user()->name }}</p>
     </div>
     </x-app-layout>
 
@@ -53,7 +56,7 @@
                 document.getElementById(`form_${id}`).submit();
                 }
             }
-        </script>
-      
+    </script>
+     
 </body>
 </html>
