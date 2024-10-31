@@ -15,31 +15,31 @@ class MindSeeder extends Seeder
     public function run(): void
     {
         DB::table('minds')->insert([
-            'name' => 'happy',
+            'name' => 'happy😄',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('minds')->insert([
-            'name' => 'sad',
+            'name' => 'sad😢',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('minds')->insert([
-            'name' => 'angry',
+            'name' => 'angry😡',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('minds')->insert([
-            'name' => 'fear',
+            'name' => 'fear😨',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
 
         DB::table('minds')->insert([
-            'name' => 'surprise',
+            'name' => 'surprise😳',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
