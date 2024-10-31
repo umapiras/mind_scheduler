@@ -33,7 +33,7 @@
         </div>
 
         <div class="text-lg mb-3">
-            <h2>MINDS</h2>
+            <h2>今日はどんな気持ち？</h2>
             <select name="schedule[mind_id]">
             @foreach($minds as $mind)
                     <option value="{{ $mind->id }}">{{ $mind->name }}</option>
